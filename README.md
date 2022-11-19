@@ -27,7 +27,7 @@ responsibility to hodl in a more self sovereign way?
 Try nostrnode! A way to connect your mobile device to any Bitcoin Core light client. 
 For now Fully Noded is the only wallet that works with Bitcoin rpc as a backend via http.
 
-## How 
+## How?
 
 - Fully Noded is a nostr client as is nostrnode, they deal only in `ephemeral` event types.
 
@@ -49,5 +49,6 @@ For now Fully Noded is the only wallet that works with Bitcoin rpc as a backend 
 - Incorporating our own private nostr relay which should make it faster, easier, and more private/secure.
 - Try `py-script` to make it work via localhost as a pwa?
 - Add Join Market and maybe lightning http functionality.
+- An Android wallet that works like this.
   
 
