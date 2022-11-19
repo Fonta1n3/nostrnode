@@ -24,25 +24,22 @@ or VPNs?
 Feeling sad and ovewhelmed bc you lost all your funds on FTX but now want to take some
 responsibility to hodl in a more self sovereign way?
 
-Try nostrnode! A way to connect your mobile device to any Bitcoin Core light client. 
-For now Fully Noded is the only wallet that works with Bitcoin rpc as a backend via http.
+Try nostrnode! A way to connect your mobile device to any Bitcoin Core light client.
 
 ## How?
 
 - Fully Noded is a nostr client as is nostrnode, they deal only in `ephemeral` event types.
 
-- nostrnode is hardcoded to speak `http` to your local Bitcoin Core `http` server which by 
+- nostrnode is hardcoded to speak to your *local* Bitcoin Core `http` server which by 
   default is exposed to `localhost`.
   
 - The user needs to add the `rpcauth=xxx` from nostrnode to their `bitcoin.conf`, subscribe 
   a Bitcoin Core light client (like Fully Noded) to nostrnode's public key and vice-versa.
   
--  Encryption words are used as a cross platfrom encryption key thanks to `rncryptor`. Input 
+- Encryption words are used as a cross platfrom encryption key thanks to `rncryptor`. Input 
    the words yourself or let Fully Noded handle it by deriving a 12 word mnemonic from the 
    cryptographically secure random number generator for you (FN trims it down to 5 words).
-  
-- You'll need to subscribe to pubkeys, Fully Noded and nostr node create them on your behalf, 
-  just paste them in.
+
 
 ## Whats next?
 
