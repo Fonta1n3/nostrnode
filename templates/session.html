@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nostrnode.com</title>
+    {% if log_string %}
+        <h2>{{log_string}}</h2>
+    {% endif %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+        $(function() {
+            $.getJSON('/start_to_listen',
+                function(data) {});
+            return false;
+        });
+    </script>
+<br>
+<br>
+    <form class="grid" action="/status" method="POST">
+        <div class='container'>
+            <form>
+                <a href=# id=status><button class='btn btn-default'>Status</button></a>
+            </form>
+        </div>
+    </form>
+</body>
+</html>

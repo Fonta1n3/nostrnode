@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+        <link crossorigin="use-credentials" href="/static/manifest.json" rel="manifest"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    <h1>nostrnode.com</h1>
+        <h3>Your node on Nostr!</h3>
+        <form class="grid" action="/submitted" method="POST">
+            <div style="text-align:left">
+                <label for = "fully_noded_pubkey" >Fully Noded nostr pubkey: </label>
+                <br>
+                    <input type="text" name="fully_noded_pubkey" id="fully_noded_pubkey">
+                <br>
+                <br>
+                    <label for = "relay" >Fully Noded nostr relay url: </label>
+                <br>
+                    <input type="text" name="relay" id="relay">
+                <br>
+                <br>
+                    <label for = "encryption_words" >Fully Noded encryption words: </label>
+                <br>
+                    <input type="password" name="encryption_words" id="encryption_words">
+                <br>
+                <br>
+                    <select name="btc_rpc_port" id="btc_rpc_port">
+                      <option value="18443">regtest</option>
+                      <option value="8332">mainnet</option>
+                      <option value="18332">testnet</option>
+                      <option value="38332">signet</option>
+                    </select>
+                <br>
+                <br>
+                    <label type="to_export">append this line to your bitcoin.conf:</label>
+                    <br>
+                    <label type="item_to_export">
+                    {{rpc_auth_string}}
+                    </label>
+                <br>
+                <br>
+                <label type="to_export">subscribe to the nostrnode pubkey:</label>
+                <br>
+                <label type="item_to_export">
+                    {{our_nostr_pubkey}}
+                </label>
+                <br>
+                <br>
+                <label type="to_export">support my work by donating to:</label>
+                <br>
+                <label type="item_to_export">{{address}}</label>
+                <br>
+                <br>
+                <input type="submit" name="submit" value="Submit">
+                <br>
+                <br>
+                <iframe src="https://github.com/sponsors/Fonta1n3/card" title="Sponsor Fontaine" height="150" width="600" style="border: 1px;"></iframe>
+            </div>
+        </form>
+<!--    <py-script src="/app.py"></py-script>-->
+    <script src="/static/js/pwa-scaffold.js"></script>
+    </body>
+</html>

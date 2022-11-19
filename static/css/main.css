@@ -1,0 +1,142 @@
+input[type=submit] {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 2px 16px;
+    height: 32px;
+    min-width: 60px;
+    min-height: 32px;
+    border: none;
+    color: #fff;
+    background-color: #4f545c;
+    transition: background-color .17s ease,color .17s ease;
+}
+
+button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 2px 16px;
+    height: 32px;
+    min-width: 60px;
+    min-height: 32px;
+    border: none;
+    color: #fff;
+    background-color: #4f545c;
+    transition: background-color .17s ease,color .17s ease;
+}
+
+input[type=text] {
+    box-shadow: inset #abacaf 0 0 0 2px;
+    border: 0;
+    background: rgba(0, 0, 0, 0);
+    appearance: none;
+    width: 40%;
+    position: relative;
+    border-radius: 3px;
+    padding: 9px 12px;
+    line-height: 1.4;
+    color: #E7EAED;
+    font-size: 16px;
+    font-weight: 400;
+    height: 20px;
+    transition: all .2s ease;
+    :hover{
+        box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 2px;
+    }
+    :focus{
+        border-color: #719ECE;
+        border: 1px;
+        background: #fff;
+        outline: 0;
+        box-shadow: 0 0 10px 0 #719ECE;
+    }
+}
+
+input[type=password] {
+    box-shadow: inset #abacaf 0 0 0 2px;
+    border: 0;
+    background: rgba(0, 0, 0, 0);
+    appearance: none;
+    width: 40%;
+    position: relative;
+    border-radius: 3px;
+    padding: 9px 12px;
+    line-height: 1.4;
+    color: #E7EAED;
+    font-size: 16px;
+    font-weight: 400;
+    height: 20px;
+    transition: all .2s ease;
+    :hover{
+        box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 2px;
+    }
+    :focus{
+        background: #fff;
+        outline: 0;
+        box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 3px;
+    }
+}
+
+label {
+    font-family: 'Roboto Medium', sans-serif;
+    color: #b1bac4;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 5px;
+}
+
+body {
+    background: #1C2126
+}
+
+h1 {
+    font-size: 40px;
+    font-family: 'Roboto Medium', sans-serif;
+    color: #7ee787
+}
+
+h2 {
+    font-family: 'Roboto Medium', sans-serif;
+    color: #7ee787
+}
+
+h3 {
+    font-family: 'Roboto Medium', sans-serif;
+    color: #c9d1d9
+}
+
+label[type=to_export] {
+    font-family: 'Roboto Medium', sans-serif;
+    color: #6e7681;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 5px;
+}
+
+label[type=item_to_export] {
+    font-family: 'Roboto Medium', sans-serif;
+    color: #4b5564;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 5px;
+}
+
+select {
+    font-family: 'Roboto Medium', sans-serif;
+    color: #b1bac4;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0)
+}
+
+
