@@ -5,8 +5,9 @@ Your node, on nostr!
 
 nostrnode allows Fully Noded users to easily connect to Bitcoin Core running on any operating system that supports python.
 It's fast, easy and decentralized! nostrnode is generic, it encrypts all Bitcoin related comms thanks to `rncryptor` and
-in theory should be very easy to incorporate into any Bitcoin Core/nostr client. ⚠️ nostrnode is new and experimental, 
-use at your own risk.
+in theory should be very easy to incorporate into any Bitcoin Core/nostr client. 
+
+⚠️ nostrnode is new and experimental, use at your own risk.
 
 ## Installation
 ```
