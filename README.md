@@ -26,7 +26,7 @@ You can then open any browser and enter `127.0.0.1:5000` to access the UI. See a
   and http request on the Bitcoin Core server side.
 - Fully Noded and nostrnode use `rncryptor` to encrypt/decrypt the command and response dict, here is a swift example 
   from Fully Noded (BTC_CLI_COMMAND represents a string of the command and its params as json):
-```
+```swift
 func executeNostrRpc(method: BTC_CLI_COMMAND) {
     var walletName:String?
     if isWalletRPC(command: method) {
