@@ -22,8 +22,10 @@ You can then open any browser and enter `127.0.0.1:5000` to access the UI. See a
 
 ## Integration
 
-- light clients encrypt a dict containing a bitcoin-cli command, optional param dict and wallet name to construct the url.
-- Fully Noded and nostrnode use `rncryptor` to encrypt the dict, here is a swift example from Fully Noded:
+- light clients encrypt a dict containing a bitcoin-cli command, optional param dict and wallet name to construct the url 
+  and http request on the Bitcoin Core server side.
+- Fully Noded and nostrnode use `rncryptor` to encrypt/decrypt the command and response dict, here is a swift example 
+  from Fully Noded (BTC_CLI_COMMAND represents a string of the command and its params as json):
 ```
 func executeNostrRpc(method: BTC_CLI_COMMAND) {
     var walletName:String?
@@ -48,7 +50,7 @@ func executeNostrRpc(method: BTC_CLI_COMMAND) {
 ```
 
 - nostrnode encrypts the response from bitcoin-cli as a dict to base64 text as the nostr event content:
-```
+```python
 if "result" in json_content:
     part = {"response": json_content["result"], "errorDesc": error_desc}
     json_part_data = json.dumps(part).encode('utf8')
