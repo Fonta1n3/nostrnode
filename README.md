@@ -47,5 +47,15 @@ Try nostrnode! A way to connect your mobile device to any Bitcoin Core light cli
 - Try `py-script` to make it work via localhost as a pwa?
 - Add Join Market and maybe lightning http functionality.
 - An Android wallet that works like this.
-  
+
+
+## Installation
+```
+git clone nostrnode....
+cd nostrnode
+source venv/bin/activate
+pip install requirements.txt
+flask --app app --debug run
+```
+You can then open any browser and enter `127.0.0.1:5000` to access the UI. See also the cli version...
 
