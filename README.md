@@ -17,5 +17,69 @@ source venv/bin/activate
 pip install requirements.txt
 flask --app app --debug run
 ```
-You can then open any browser and enter `127.0.0.1:5000` to access the UI. See also the cli version...
+You can then open any browser and enter `127.0.0.1:5000` to access the UI. See also the cli version.
+
+
+## Integration
+
+- light clients encrypt a dict containing a bitcoin-cli command, optional param dict and wallet name to construct the url.
+- Fully Noded and nostrnode use `rncryptor` to encrypt the dict, here is a swift example from Fully Noded:
+```
+func executeNostrRpc(method: BTC_CLI_COMMAND) {
+    var walletName:String?
+    if isWalletRPC(command: method) {
+        walletName = UserDefaults.standard.string(forKey: "walletName")
+    }
+    let dict:[String:Any] = ["command":method.stringValue,"paramDict":["param":method.paramDict],"wallet":walletName ?? ""]
+    guard let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) else {
+        #if DEBUG
+        print("converting to jsonData failing...")
+        #endif
+        return
+    }
+    guard let node = activeNode,
+          let encryptedWords = node.nostrWords,
+        let decryptedWords = Crypto.decrypt(encryptedWords),
+          let words = decryptedWords.utf8String else { onDoneBlock!((nil, "Error encrypting content...")); return }
+    
+    let encryptedContent = Crypto.encryptNostr(jsonData, words)!.base64EncodedString()
+    writeEvent(content: encryptedContent)
+    }
+```
+
+- nostrnode encrypts the response from bitcoin-cli as a dict to base64 text as the nostr event content:
+```
+if "result" in json_content:
+    part = {"response": json_content["result"], "errorDesc": error_desc}
+    json_part_data = json.dumps(part).encode('utf8')
+    encrypted_content = encryption.encrypt(json_part_data, encryption_words)
+    b64_encrypted_content = b64encode(encrypted_content).decode("ascii")
+    created_at = int(datetime.now().timestamp())
+    raw_event = f'''[
+        0,
+        "{nostr_credentials.public_key[2:]}",
+        {created_at},
+        20001,
+        [],
+        "{b64_encrypted_content}"
+    ]'''
+    event_id = hashlib.sha256(raw_event.encode('utf8')).hexdigest()
+    event_dict = {
+        'id': event_id,
+        'pubkey': nostr_credentials.public_key[2:],
+        'created_at': created_at,
+        'kind': 20001,
+        'tags': [],
+        'content': b64_encrypted_content,
+        'sig': None
+    }
+    event = Event.from_JSON(event_dict)
+    event.sign(nostr_credentials.private_key_serialized)
+    if event.is_valid():
+        e = ['EVENT', event.event_data()]
+        return json.dumps(e)
+    else:
+        print('Event invalid!')
+```
+
 
