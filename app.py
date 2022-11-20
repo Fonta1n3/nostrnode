@@ -128,6 +128,7 @@ def make_command(command, wallet, param):
     req_id = uuid.uuid4().hex
     data = {'jsonrpc': '1.0', 'id': req_id, 'method': command, 'params': param}
     json_data = json.dumps(data)
+
     return requests.post(url,
                          data=json_data.encode('utf8'),
                          headers=headers,
@@ -183,6 +184,7 @@ def status():
 def start_to_listen():
     if not subscribed:
         start_listening()
+
     return 'nothing'
 
 
