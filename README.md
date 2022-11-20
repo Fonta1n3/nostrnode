@@ -12,7 +12,7 @@ thanks to `rncryptor` and in theory should be very easy to integrate into any Bi
 This repo is for the pwa (progressive web app) version, if you run nostrnode on Chrome or any browser that supports pwa 
 you can install it locally as a pwa. Setting up this python project to work as a pwa was not easy, the structure of this 
 repo is a great template to get a pwa on python up and running. Having said that the cli version makes much more sense 
-for real world use, find the repo [here]().
+for real world use, find the repo [nostrnode-cli](https://github.com/Fonta1n3/nostrnode-cli).
 
 ## Installation
 You will need python 3.9
